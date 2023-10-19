@@ -1,6 +1,11 @@
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import "./globals.css";
 import { Toaster } from "sonner";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Springer",
+};
 
 interface RootLayoutProps {
   children: React.ReactNode;

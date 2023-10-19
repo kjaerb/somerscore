@@ -4,26 +4,21 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { useRef, useState } from "react";
 import { toast } from "sonner";
-
 import { z } from "zod";
-import { Button } from "../ui/button";
-
-type Judge = "Execution" | "Difficulity" | "HD" | "ToF";
+import { Button } from "@/components/ui/button";
+import { Judge, judgeInputSchema } from "@/schema/competition-schema";
+import { useCompetitionStore } from "@/stores/competition-store";
 
 type JudgeInputProps = {
   numSkills: number;
   skillsToScore: number;
   landing?: boolean;
-  judgeType: Judge;
+  judge: Judge;
 };
-
-const judgeInputSchema = z
-  .number()
-  .min(0, { message: "Deduction cannot be lower than 0" })
-  .max(5, { message: "Deduction cannot be higher than 5" });
 
 export function JudgeInput({ numSkills, landing = true }: JudgeInputProps) {
   const [isScoringComplete, setIsScoringComplete] = useState<boolean>(false);
+  const { isFinished } = useCompetitionStore();
 
   const combinedNumSkills = landing ? numSkills + 1 : numSkills;
   const inputRef = useRef<HTMLInputElement>(null);
@@ -48,7 +43,11 @@ export function JudgeInput({ numSkills, landing = true }: JudgeInputProps) {
       <div
         className={cn(
           "grid grid-cols-2 justify-between sm:flex sm:flex-nowrap space-x-2",
-          isScoringComplete && "pointer-events-none opacity-50"
+          isFinished
+            ? isScoringComplete
+              ? "pointer-events-none opacity-50"
+              : ""
+            : "pointer-events-none opacity-50"
         )}
       >
         {Array?.from({ length: combinedNumSkills }, (_, index) => (
@@ -70,7 +69,7 @@ export function JudgeInput({ numSkills, landing = true }: JudgeInputProps) {
         ))}
       </div>
       <Button
-        className="mt-4"
+        className="mt-4 w-full sm:w-fit"
         onClick={() => setIsScoringComplete(!isScoringComplete)}
       >
         {isScoringComplete ? "Edit scores" : "Mark as completed"}

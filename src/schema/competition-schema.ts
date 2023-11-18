@@ -7,6 +7,6 @@ export const judgeInputSchema = z
 
 export type JudgeInput = z.infer<typeof judgeInputSchema>;
 
-export const judgeSchema = z.enum(["Execution", "Difficulity", "HD", "ToF"]);
+export const judgeSchema = z.enum(["Execution", "Difficulity"]);
 
 export type Judge = z.infer<typeof judgeSchema>;

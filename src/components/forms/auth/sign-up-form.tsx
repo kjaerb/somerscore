@@ -1,0 +1,95 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { useSignUp } from "@/hooks/useAuth";
+import { SignUp, signUpSchema } from "@/schema/auth-schema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+
+export function SignUpForm() {
+  const { isLoading, signUpCallback } = useSignUp();
+  const signUpForm = useForm<SignUp>({
+    resolver: zodResolver(signUpSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+  });
+
+  const { handleSubmit, control } = signUpForm;
+
+  async function handleSignUp(data: SignUp) {
+    await signUpCallback(data);
+  }
+
+  return (
+    <Form {...signUpForm}>
+      <form onSubmit={handleSubmit(handleSignUp)}>
+        <FormField
+          control={control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email</FormLabel>
+              <FormControl>
+                <Input placeholder="Please enter email" {...field} />
+              </FormControl>
+              <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={control}
+          name="password"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Password</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Please enter password"
+                  type="password"
+                  {...field}
+                />
+              </FormControl>
+              <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={control}
+          name="confirmPassword"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Repeat password</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Please confirm password"
+                  type="password"
+                  {...field}
+                />
+              </FormControl>
+              <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button disabled={isLoading} type="submit" className="mt-2 w-full">
+          Sign up
+        </Button>
+      </form>
+    </Form>
+  );
+}

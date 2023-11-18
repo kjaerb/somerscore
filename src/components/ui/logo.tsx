@@ -1,3 +1,3 @@
 export function Logo() {
-  return <p>SPRINGER</p>;
+  return <h2>SPRINGER</h2>;
 }

@@ -5,6 +5,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Springer",
+  viewport: "width=device-width, initial-scale=1",
+  description: "A livescoring app for gymnasts by gymnasts",
 };
 
 interface RootLayoutProps {
@@ -23,7 +25,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             enableSystem
             disableTransitionOnChange
           >
-            <main>{children}</main>
+            {children}
             <Toaster richColors />
           </ThemeProvider>
         </body>

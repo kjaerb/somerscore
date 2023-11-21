@@ -2,7 +2,7 @@
 
 import { SignOut } from "@/components/auth/sign-out";
 import { UserAvatar } from "@/components/auth/user-avatar";
-import { ToggleTheme } from "@/components/theme/toggle-mode";
+import { ToggleTheme } from "@/components/ui/toggle-mode";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   DropdownMenu,

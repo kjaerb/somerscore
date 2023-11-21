@@ -1,4 +1,4 @@
-import { ToggleTheme } from "@/components/theme/toggle-mode";
+import { ToggleTheme } from "@/components/ui/toggle-mode";
 
 export function PublicFooter() {
   return (

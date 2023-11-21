@@ -1,4 +1,4 @@
-import { ToggleTheme } from "@/components/theme/toggle-mode";
+import { ToggleTheme } from "@/components/ui/toggle-mode";
 import { AthleteInfo } from "@/components/competition/athlete-info";
 import { JudgeInput } from "@/components/competition/judge-input";
 import { StatusBadge } from "@/components/competition/status-badge";

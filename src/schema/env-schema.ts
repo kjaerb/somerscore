@@ -9,6 +9,11 @@ const envSchema = z.object({
   NEXT_PUBLIC_MESSAGING_SENDER_ID: z.string(),
   NEXT_PUBLIC_APP_ID: z.string(),
   NEXT_PUBLIC_MEASUREMENT_ID: z.string(),
+  GOOGLE_CLIENT_ID: z.string(),
+  GOOGLE_CLIENT_SECRET: z.string(),
+  FIREBASE_PROJECT_ID: z.string(),
+  FIREBASE_CLIENT_EMAIL: z.string(),
+  FIREBASE_PRIVATE_KEY: z.string(),
 });
 
 declare global {

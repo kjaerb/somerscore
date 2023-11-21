@@ -1,8 +1,9 @@
-import { initializeApp } from "firebase/app";
+import { getApp, getApps, initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 import { getAnalytics, isSupported } from "firebase/analytics";
+import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -16,18 +17,11 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const database = getFirestore(app);
+const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+const fbAuth = getAuth(app);
+const db = getFirestore(app);
+const rtDb = getDatabase(app);
 const storage = getStorage(app);
 const analytics = isSupported().then((yes) => (yes ? getAnalytics(app) : null));
 
-auth.onAuthStateChanged((user) => {
-  if (user) {
-    console.log("User is signed in");
-  } else {
-    console.log("User is signed out");
-  }
-});
-
-export { app, database, auth, storage, analytics };
+export { app, db, rtDb, fbAuth, storage, analytics };

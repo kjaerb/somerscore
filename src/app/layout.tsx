@@ -1,7 +1,9 @@
-import { ThemeProvider } from "@/components/theme/theme-provider";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 import "./globals.css";
 import { Toaster } from "sonner";
 import { Metadata } from "next";
+import AuthProvider from "../components/providers/auth-provider";
+import FirebaseAuthProvider from "@/components/providers/firebase-auth-provider";
 
 export const metadata: Metadata = {
   title: "Springer",
@@ -15,21 +17,23 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <>
+    <AuthProvider>
       <html lang="en" suppressHydrationWarning>
         <head />
         <body>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-            <Toaster richColors />
-          </ThemeProvider>
+          <FirebaseAuthProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {children}
+              <Toaster richColors />
+            </ThemeProvider>
+          </FirebaseAuthProvider>
         </body>
       </html>
-    </>
+    </AuthProvider>
   );
 }

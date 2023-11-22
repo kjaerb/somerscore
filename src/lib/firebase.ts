@@ -20,8 +20,8 @@ const firebaseConfig = {
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 const fbAuth = getAuth(app);
 const db = getFirestore(app);
-const rtDb = getDatabase(app);
+// const rtDb = getDatabase(app);
 const storage = getStorage(app);
 const analytics = isSupported().then((yes) => (yes ? getAnalytics(app) : null));
 
-export { app, db, rtDb, fbAuth, storage, analytics };
+export { app, db, fbAuth, storage, analytics };

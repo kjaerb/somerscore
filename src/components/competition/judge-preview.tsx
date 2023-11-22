@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { JudgeInput } from "./judge-input";
-import { Judge } from "@/schema/competition-schema";
+import { Judge } from "@/schemas/competition-schema";
 import { cn } from "@/lib/utils";
 
 interface JudgePreviewProps extends React.HTMLAttributes<HTMLDivElement> {

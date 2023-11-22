@@ -11,13 +11,11 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useSignUp } from "@/hooks/useAuth";
-import { SignUp, signUpSchema } from "@/schema/auth-schema";
+import { SignUp, signUpSchema } from "@/schemas/auth-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
 export function SignUpForm() {
-  const { isLoading, signUpCallback } = useSignUp();
   const signUpForm = useForm<SignUp>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
@@ -29,9 +27,7 @@ export function SignUpForm() {
 
   const { handleSubmit, control } = signUpForm;
 
-  async function handleSignUp(data: SignUp) {
-    await signUpCallback(data);
-  }
+  async function handleSignUp(data: SignUp) {}
 
   return (
     <Form {...signUpForm}>
@@ -86,7 +82,7 @@ export function SignUpForm() {
             </FormItem>
           )}
         />
-        <Button disabled={isLoading} type="submit" className="mt-2 w-full">
+        <Button type="submit" className="mt-2 w-full">
           Sign up
         </Button>
       </form>

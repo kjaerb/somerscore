@@ -1,14 +1,18 @@
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import "./globals.css";
 import { Toaster } from "sonner";
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import AuthProvider from "../components/providers/auth-provider";
 import FirebaseAuthProvider from "@/components/providers/firebase-auth-provider";
 
 export const metadata: Metadata = {
   title: "Springer",
-  viewport: "width=device-width, initial-scale=1",
   description: "A livescoring app for gymnasts by gymnasts",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 interface RootLayoutProps {

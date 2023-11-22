@@ -37,5 +37,7 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.variableTypes.enabled": "all",
 }

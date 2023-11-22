@@ -1,22 +1,20 @@
 "use client";
 
 import { Button, buttonVariants } from "@/components/ui/button";
-import { useSignOut } from "@/hooks/useAuth";
 import { VariantProps } from "class-variance-authority";
+import { signOut } from "next-auth/react";
 
 interface SignOutProps {
-  btnVariant: VariantProps<typeof buttonVariants>["variant"];
+  variant: VariantProps<typeof buttonVariants>["variant"];
 }
 
-export function SignOut({ btnVariant }: SignOutProps) {
-  const { signOutCallback, isLoading } = useSignOut();
-
-  async function handleSignOut() {
-    await signOutCallback();
-  }
-
+export function SignOut({ variant }: SignOutProps) {
   return (
-    <Button variant={btnVariant} disabled={isLoading} onClick={handleSignOut}>
+    <Button
+      variant={variant}
+      className="p-0 font-normal"
+      onClick={() => signOut()}
+    >
       Sign out
     </Button>
   );

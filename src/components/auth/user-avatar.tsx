@@ -24,3 +24,5 @@ export const UserAvatar = React.forwardRef(
     );
   }
 );
+
+UserAvatar.displayName = "UserAvatar";

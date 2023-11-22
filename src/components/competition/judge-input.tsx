@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
-import { Judge, judgeInputSchema } from "@/schema/competition-schema";
+import { Judge, judgeInputSchema } from "@/schemas/competition-schema";
 import { useCompetitionStore } from "@/stores/competition-store";
 
 type AdminPreviewProps = {

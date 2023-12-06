@@ -10,6 +10,7 @@
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
+    "allowImportingTsExtensions": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
@@ -23,6 +24,9 @@
       }
     ],
     "paths": {
+      "public/*": [
+        "./../public/*"
+      ],
       "@/*": [
         "./src/*"
       ]
@@ -31,13 +35,14 @@
   },
   "include": [
     "next-env.d.ts",
+    "/src/lib/types/*.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    // ".next/types/**/*.ts",
+    "global.d.ts",
     ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
-  ],
-  "typescript.inlayHints.parameterNames.enabled": "all",
-  "typescript.inlayHints.variableTypes.enabled": "all",
+  ]
 }

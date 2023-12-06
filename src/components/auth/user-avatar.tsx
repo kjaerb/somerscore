@@ -2,6 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { initialsAvatar } from "@/lib/dicebear";
 import { LoadingSpinner } from "@/components/ui/loading";
 import React from "react";
+import Image from "next/image";
 
 interface UserAvatarProps {
   imgUrl?: string;
@@ -19,6 +20,13 @@ export const UserAvatar = React.forwardRef(
         />
         <AvatarFallback>
           <LoadingSpinner />
+          {/* <Image
+            src={initialsAvatar(name)}
+            alt="user avatar"
+            width={16}
+            height={16}
+            className="object-cover h-full w-full"
+          /> */}
         </AvatarFallback>
       </Avatar>
     );

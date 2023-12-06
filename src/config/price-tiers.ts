@@ -20,7 +20,7 @@ export const priceTiers: PriceTier[] = [
   },
   {
     name: "Clubs",
-    id: "clubs",
+    id: "price_1OFNYsLWKlezRXd5KLM77XaO",
     description: "For small clubs getting started with competitions",
     href: "#",
     price: "$1.00",

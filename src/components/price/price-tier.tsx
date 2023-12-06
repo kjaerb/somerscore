@@ -1,14 +1,17 @@
 import { type PriceTier } from "@/config/price-tiers";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ComponentProps, HTMLAttributes } from "react";
+import { HTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 interface PriceTierProps extends HTMLAttributes<HTMLDivElement> {
   tier: PriceTier;
 }
 
 export function PriceTier({ tier, ...props }: PriceTierProps) {
+  const t = useTranslations("Buttons.PriceTier");
+
   return (
     <div
       {...props}
@@ -33,7 +36,7 @@ export function PriceTier({ tier, ...props }: PriceTierProps) {
           ))}
         </ul>
       </div>
-      <Button>Get started now</Button>
+      <Button>{t("get-started")}</Button>
     </div>
   );
 }

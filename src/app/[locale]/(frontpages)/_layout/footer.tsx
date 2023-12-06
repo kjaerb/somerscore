@@ -1,3 +1,5 @@
+import { SelectLocale } from "@/components/selects/locale/select-locale";
+import { SelectTheme } from "@/components/selects/theme/select-theme";
 import { Logo } from "@/components/ui/logo";
 import { ToggleTheme } from "@/components/ui/toggle-mode";
 
@@ -10,7 +12,10 @@ export function PublicFooter() {
         </p>
         <Logo />
       </div>
-      <ToggleTheme />
+      <div className="flex items-center space-x-4">
+        <SelectLocale />
+        <SelectTheme />
+      </div>
     </footer>
   );
 }

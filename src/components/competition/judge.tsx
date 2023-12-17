@@ -1,8 +1,8 @@
-import { ToggleTheme } from "@/components/ui/toggle-mode";
 import { AthleteInfo } from "@/components/competition/athlete-info";
 import { JudgeInput } from "@/components/competition/judge-input";
 import { StatusBadge } from "@/components/competition/status-badge";
 import { Logo } from "@/components/ui/logo";
+import { SelectTheme } from "../selects/select-theme";
 
 export function Judge() {
   return (
@@ -28,7 +28,7 @@ export function Judge() {
       <div className="border-t flex justify-between items-center p-4">
         <p>EXECUTION 1</p>
         <Logo />
-        <ToggleTheme />
+        <SelectTheme />
       </div>
     </div>
   );

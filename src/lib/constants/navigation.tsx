@@ -62,8 +62,7 @@ type SidebarLink = {
   icon: React.ReactNode;
 };
 
-export function getDashboardLinks(): SidebarLink[] {
-  const pathname = usePathname();
+export function getDashboardLinks(pathname: string): SidebarLink[] {
   const cl = createDashboardLink(pathname);
 
   return [

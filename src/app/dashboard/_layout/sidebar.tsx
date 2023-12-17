@@ -13,7 +13,7 @@ interface SidebarProps {}
 export function Sidebar({}: SidebarProps) {
   const pathname = usePathname();
   const links = useMemo(() => {
-    return getDashboardLinks();
+    return getDashboardLinks(pathname);
   }, [pathname]);
   return (
     <aside className="w-[300px] flex flex-col shadow-lg border-r p-4 dark:border-white">

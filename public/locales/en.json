@@ -6,13 +6,11 @@
   "Global": {
     "theme": "{theme, select, light {Light} dark {Dark} system {System} other {Unknown}}"
   },
-  "Hellos": {
-    "Hello": "Hello {name}!"
-  },
   "Navigation": {
     "Frontpage": {
       "competitions": "Competitions",
-      "plans": "Plans"
+      "plans": "Plans",
+      "sign-in": "Sign in"
     },
     "Dashboard": {
       "dashboard": "Dashboard",
@@ -20,6 +18,50 @@
       "plans": "Plans",
       "logout": "Logout"
     }
+  },
+  "Pricing": {
+    "tiers": {
+      "free": {
+        "title": "Free",
+        "price": "Free",
+        "pricePrefix": "",
+        "priceDescription": "",
+        "description": "For testing and small competitions",
+        "features": [
+          "Up to 10 athletes per competition",
+          "4 age groups"
+        ],
+        "buttonText": "Get started"
+      },
+      "clubs": {
+        "title": "Clubs",
+        "price": "1.00",
+        "pricePrefix": "$",
+        "priceDescription": "/athlete per competition",
+        "description": "For clubs getting started with competitions",
+        "features": [
+          "Unlimited competitions",
+          "Unlimited athletes",
+          "20 club"
+        ],
+        "buttonText": "Get started"
+      },
+      "enterprise": {
+        "title": "Federations",
+        "price": "Contact us",
+        "pricePrefix": "",
+        "priceDescription": "",
+        "description": "For federations with that wants to allow multiple clubs to have competitions",
+        "features": [
+          "Unlimited competitions",
+          "Unlimited athletes",
+          "20 club"
+        ],
+        "buttonText": "Get started"
+      }
+    },
+    "title": "Get the plan for your needs",
+    "description": "We're sure we have a plan that matches exactly what you're looking for"
   },
   "Frontpage": {
     "title": "Live scoring for gymnasts, by gymnasts",

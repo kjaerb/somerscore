@@ -15,7 +15,7 @@ export async function DesktopNav({ ...props }: DesktopNavProps) {
         props.className
       )}
     >
-      <ul className={cn("flex items-center gap-4 ")}>
+      <ul className={cn("flex items-center gap-4")}>
         {headerLinks.map((link) => (
           <li key={link.href}>
             <Link

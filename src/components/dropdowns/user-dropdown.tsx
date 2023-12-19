@@ -12,6 +12,7 @@ import { authOptions } from "@/lib/auth";
 import Link from "next/link";
 import { SignOut } from "@/components/auth/sign-out";
 import { LayoutIcon, LogOutIcon, UserIcon } from "lucide-react";
+import { Tier } from "@/components/label/tier";
 
 interface UserDropdownProps {}
 
@@ -29,21 +30,26 @@ export async function UserDropdown({}: UserDropdownProps) {
         />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="text-sm m-2">
-        <DropdownMenuItem className="gap-2">
+        <DropdownMenuItem className="">
           <UserIcon height={18} />
           <span>{session.user.name || session.user.email}</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
+
+        <DropdownMenuItem className="">
+          <Tier className="mx-auto py-2" />
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem className="gap-2">
-            <LayoutIcon height={18} />
-            <Link
-              className="hover:underline underline-offset-4"
-              href={"/dashboard"}
-            >
+          <Link
+            className="hover:underline underline-offset-4"
+            href={"/dashboard"}
+          >
+            <DropdownMenuItem className="gap-2 cursor-pointer">
+              <LayoutIcon height={18} />
               Dashboard
-            </Link>
-          </DropdownMenuItem>
+            </DropdownMenuItem>
+          </Link>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem className="gap-2">

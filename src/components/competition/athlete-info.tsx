@@ -16,7 +16,7 @@ export function AthleteInfo({ imgUrl, name, sport }: AthleteInfoProps) {
     <Dialog>
       <DialogTrigger asChild>
         <div className={cn("flex items-center cursor-pointer")}>
-          <Avatar className="dark:border dark:border-gray-500">
+          <Avatar>
             <AvatarImage
               src={imgUrl ? imgUrl : initialsAvatar(name)}
               alt="athlete-image"

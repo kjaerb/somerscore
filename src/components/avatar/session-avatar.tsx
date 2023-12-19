@@ -14,7 +14,7 @@ export async function SessionAvatar() {
   } = session;
 
   return (
-    <Avatar className="dark:border dark:border-gray-500">
+    <Avatar className="">
       <AvatarImage
         src={image ? image : initialsAvatar(name || "?")}
         alt="athlete-image"

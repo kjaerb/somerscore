@@ -21,7 +21,7 @@ const oauths: OAuth[] = [
     icon: <Icons.Google className="h-full pr-4" />,
     callback: () => signIn("google"),
     name: "Google",
-    color: "bg-black dark:bg-gray-500 dark:text-white",
+    color: "bg-black dark:bg-slate-700 dark:shadow-lg dark:text-white",
   },
 ];
 

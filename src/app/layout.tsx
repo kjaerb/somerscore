@@ -4,6 +4,9 @@ import { Toaster } from "sonner";
 import { Metadata, Viewport } from "next";
 import AuthProvider from "@/components/providers/auth-provider";
 import FirebaseAuthProvider from "@/components/providers/firebase-auth-provider";
+import { cn } from "@/lib/utils";
+import { Roboto } from "next/font/google";
+import { SubscriptionProvider } from "@/components/providers/subscription-provider";
 
 export const metadata: Metadata = {
   title: "Somerscore",
@@ -15,6 +18,11 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const roboto = Roboto({
+  weight: ["100", "300", "400", "500", "700", "900"],
+  subsets: ["latin"],
+});
+
 interface RootLayoutProps {
   children: React.ReactNode;
 }
@@ -24,17 +32,19 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     <AuthProvider>
       <html>
         <head />
-        <body className="dark:dark">
+        <body className={cn("dark:dark", roboto.className)}>
           <FirebaseAuthProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              {children}
-              <Toaster richColors />
-            </ThemeProvider>
+            <SubscriptionProvider>
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="system"
+                enableSystem
+                disableTransitionOnChange
+              >
+                {children}
+                <Toaster richColors />
+              </ThemeProvider>
+            </SubscriptionProvider>
           </FirebaseAuthProvider>
         </body>
       </html>

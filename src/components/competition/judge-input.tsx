@@ -92,7 +92,7 @@ export function JudgeInput({
                   : `S${skillsOffset}`}
               </span>
               <Input
-                className="p-2 shadow-md border rounded-md dark:border-gray-300"
+                className="p-2 shadow-md border rounded-md "
                 type="number"
                 // Disables the score input if the athlete hasn't done all skills
                 disabled={!canScore || index > skillsToScore}

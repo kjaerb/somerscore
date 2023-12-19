@@ -1,11 +1,14 @@
+import { ActiveLinkType } from "@/components/navigation/active-link";
 import {
   CalendarDays,
   HelpCircle,
-  Home,
   LayoutIcon,
+  LogOutIcon,
+  Settings,
   User2Icon,
+  Users2,
 } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { signOut } from "next-auth/react";
 
 export type LinkConfig = {
   label: string;
@@ -32,43 +35,39 @@ export const headerLinks: LinkConfig[] = [
   },
 ] as const;
 
-export const dashboardLinks: LinkConfig[] = [
+export const dashboardAccountLinks: ActiveLinkType[] = [
   {
     label: "Dashboard",
     href: "/dashboard",
     icon: <LayoutIcon />,
   },
-];
+  {
+    label: "Athletes",
+    href: "/dashboard/athletes",
+    icon: <Users2 />,
+  },
+  {
+    label: "Calendar",
+    href: "/dashboard/calendar",
+    icon: <CalendarDays />,
+  },
+  {
+    label: "Club",
+    href: "/dashboard/club",
+    icon: <HelpCircle />,
+  },
+] as const;
 
-function createDashboardLink(
-  pathname: string
-): (label: string, href: string, icon: React.ReactNode) => SidebarLink {
-  return (
-    label: SidebarLink["label"],
-    href: SidebarLink["href"],
-    icon: SidebarLink["icon"]
-  ) => ({
-    label,
-    active: pathname === href,
-    href,
-    icon,
-  });
-}
-
-type SidebarLink = {
-  label: string;
-  active: boolean;
-  href: string;
-  icon: React.ReactNode;
-};
-
-export function getDashboardLinks(pathname: string): SidebarLink[] {
-  const cl = createDashboardLink(pathname);
-
-  return [
-    cl("Dashboard", "/dashboard", <LayoutIcon />),
-    cl("Athletes", "/dashboard/athletes", <User2Icon />),
-    cl("Calender", "/dashboard/calender", <CalendarDays />),
-    cl("Club", "/dashboard/club", <HelpCircle />),
-  ];
-}
+export const dashboardSettingsLinks: ActiveLinkType[] = [
+  {
+    label: "Settings",
+    href: "/dashboard/settings",
+    icon: <Settings />,
+  },
+  {
+    label: "Sign out",
+    href: "/",
+    icon: <LogOutIcon />,
+    onClick: signOut,
+  },
+] as const;

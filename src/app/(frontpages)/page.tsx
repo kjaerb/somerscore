@@ -1,3 +1,11 @@
+import { TrustedBy } from "./_components/trusted-by";
+
 export default function HomePage() {
-  return <div>Home page</div>;
+  return (
+    <div>
+      <div className="mx-auto max-w-5xl">
+        <TrustedBy />
+      </div>
+    </div>
+  );
 }

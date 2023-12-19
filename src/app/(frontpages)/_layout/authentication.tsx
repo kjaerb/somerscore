@@ -12,7 +12,7 @@ export async function Authentication({}: AuthenticationProps) {
   return session ? (
     <UserDropdown />
   ) : (
-    <Link href={"/auth"}>
+    <Link href={"/login"}>
       <Button variant={"default"}>Sign in</Button>
     </Link>
   );

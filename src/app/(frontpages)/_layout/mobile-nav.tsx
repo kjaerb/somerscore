@@ -10,7 +10,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { authOptions } from "@/lib/auth";
-import { dashboardLinks, headerLinks } from "@/lib/constants/navigation";
+import { headerLinks } from "@/lib/constants/navigation";
 import { cn } from "@/lib/utils";
 import { DialogTriggerProps } from "@radix-ui/react-dialog";
 import { MenuIcon } from "lucide-react";
@@ -19,12 +19,12 @@ import Link from "next/link";
 
 interface MobileNavProps extends DialogTriggerProps {}
 
-export async function MobileNav({ ...props }: MobileNavProps) {
+export async function MobileNav({ className, ...props }: MobileNavProps) {
   const session = await getServerSession(authOptions);
 
   return (
     <Sheet>
-      <SheetTrigger {...props}>
+      <SheetTrigger {...props} className={cn("block sm:hidden", className)}>
         <MenuIcon />
       </SheetTrigger>
       <SheetContent>
@@ -62,7 +62,7 @@ export async function MobileNav({ ...props }: MobileNavProps) {
                   imgUrl={session.user.image || ""}
                 />
               </li>
-              {dashboardLinks.map((dashboardLink) => (
+              {/* {dashboardLinks.map((dashboardLink) => (
                 <li
                   key={dashboardLink.href}
                   className={cn(
@@ -73,7 +73,7 @@ export async function MobileNav({ ...props }: MobileNavProps) {
                   <Link href={dashboardLink.href}>{dashboardLink.label}</Link>
                   {dashboardLink.icon}
                 </li>
-              ))}
+              ))} */}
             </ul>
           ) : (
             <SignIn />

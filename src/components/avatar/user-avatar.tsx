@@ -12,7 +12,7 @@ interface UserAvatarProps {
 export const UserAvatar = React.forwardRef(
   ({ imgUrl, name }: UserAvatarProps, ref: React.Ref<HTMLDivElement>) => {
     return (
-      <Avatar className="dark:border dark:border-gray-500" ref={ref}>
+      <Avatar ref={ref}>
         <AvatarImage
           src={imgUrl ? imgUrl : initialsAvatar(name)}
           alt="athlete-image"

@@ -7,7 +7,7 @@ import {
   collection,
 } from "firebase/firestore";
 import { z } from "zod";
-import { db } from "../firebase";
+import { db } from "@/lib/firebase";
 
 const subscriptionConverter: FirestoreDataConverter<Subscription> = {
   toFirestore: function (subscription: Subscription): DocumentData {

@@ -26,5 +26,9 @@ service cloud.firestore {
         allow read: if true;
       }
     }
+
+    match /users/{id} {
+      allow read: if request.auth.uid == id;
+    }
   }
 }

@@ -10,7 +10,7 @@ import { themes } from "@/lib/constants/theme";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
-export function SelectTheme() {
+export function ThemeSelect() {
   const { setTheme } = useTheme();
 
   function onSelectChange(newTheme: string) {

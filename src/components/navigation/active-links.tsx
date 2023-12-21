@@ -1,12 +1,12 @@
 import { HtmlHTMLAttributes } from "react";
-import { ActiveLink, ActiveLinkType } from "./active-link";
+import { ActiveLink, ActiveLinkType, activeLinkVariant } from "./active-link";
 import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-const activeLinkVariant = cva("shadow-md border rounded-md", {
+const activeLinksVariant = cva("shadow-md border rounded-md", {
   variants: {
     variant: {
-      default: "bg-gray-100 dark:bg-slate-800 dark:border-gray-600",
+      default: "bg-gray-100 dark:bg-slate-800 ",
     },
     size: {
       default: "p-2",
@@ -20,9 +20,10 @@ const activeLinkVariant = cva("shadow-md border rounded-md", {
 
 interface ActiveLinksProps
   extends HtmlHTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof activeLinkVariant> {
+    VariantProps<typeof activeLinksVariant> {
   title: string;
   links: ActiveLinkType[];
+  activeLink: VariantProps<typeof activeLinkVariant>;
 }
 
 export function ActiveLinks({
@@ -30,13 +31,14 @@ export function ActiveLinks({
   links,
   variant,
   size,
+  activeLink = { active: "default" },
   className,
   ...props
 }: ActiveLinksProps) {
   return (
     <nav
       {...props}
-      className={cn(activeLinkVariant({ variant, size }), className)}
+      className={cn(activeLinksVariant({ variant, size }), className)}
     >
       <p className="px-4 py-2 text-gray-500 dark:text-gray-300 uppercase text-sm">
         {title}
@@ -45,7 +47,7 @@ export function ActiveLinks({
         <ul className="space-y-2">
           {links.map((link) => (
             <li key={link.href}>
-              <ActiveLink {...link} />
+              <ActiveLink {...link} {...activeLink} />
             </li>
           ))}
         </ul>

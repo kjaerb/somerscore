@@ -2,7 +2,7 @@ import { AthleteInfo } from "@/components/competition/athlete-info";
 import { JudgeInput } from "@/components/competition/judge-input";
 import { StatusBadge } from "@/components/competition/status-badge";
 import { Logo } from "@/components/ui/logo";
-import { SelectTheme } from "../selects/select-theme";
+import { ThemeSelect } from "../selects/theme-select";
 
 export function Judge() {
   return (
@@ -28,7 +28,7 @@ export function Judge() {
       <div className="border-t flex justify-between items-center p-4">
         <p>EXECUTION 1</p>
         <Logo />
-        <SelectTheme />
+        <ThemeSelect />
       </div>
     </div>
   );

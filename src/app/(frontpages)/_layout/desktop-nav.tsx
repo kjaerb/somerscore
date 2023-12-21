@@ -3,6 +3,7 @@ import { HTMLAttributes } from "react";
 import { Authentication } from "./authentication";
 import Link from "next/link";
 import { headerLinks } from "@/lib/constants/navigation";
+import { ActiveLink } from "@/components/navigation/active-link";
 
 interface DesktopNavProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -18,12 +19,11 @@ export async function DesktopNav({ ...props }: DesktopNavProps) {
       <ul className={cn("flex items-center gap-4")}>
         {headerLinks.map((link) => (
           <li key={link.href}>
-            <Link
+            <ActiveLink
+              label={link.label}
               href={link.href}
-              className="underline-offset-4 hover:underline"
-            >
-              {link.label}
-            </Link>
+              active="underline"
+            ></ActiveLink>
           </li>
         ))}
       </ul>

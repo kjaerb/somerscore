@@ -1,6 +1,7 @@
 import Image from "next/image";
 import HTT from "public/assets/htt.png";
 import Gymdanmark from "public/assets/gymdk.png";
+import BaraFitness from "public/assets/bara.png";
 
 interface TrustedByProps {}
 
@@ -20,6 +21,12 @@ export function TrustedBy({}: TrustedByProps) {
           alt="gymdanmark"
           width={128}
           className="invert dark:invert-0 justify-self-center"
+        />
+        <Image
+          src={BaraFitness}
+          alt="BaraFitness"
+          width={128}
+          className="invert justify-self-center"
         />
       </div>
     </div>

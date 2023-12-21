@@ -12,7 +12,7 @@ import { authOptions } from "@/lib/auth";
 import Link from "next/link";
 import { SignOut } from "@/components/auth/sign-out";
 import { LayoutIcon, LogOutIcon, UserIcon } from "lucide-react";
-import { Tier } from "@/components/label/tier";
+import { SubscriptionLabel } from "../label/subscription";
 
 interface UserDropdownProps {}
 
@@ -37,7 +37,7 @@ export async function UserDropdown({}: UserDropdownProps) {
         <DropdownMenuSeparator />
 
         <DropdownMenuItem className="">
-          <Tier className="mx-auto py-2" />
+          <SubscriptionLabel className="mx-auto py-2" />
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>

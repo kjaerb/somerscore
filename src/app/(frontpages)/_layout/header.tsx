@@ -4,8 +4,8 @@ import { DesktopNav } from "./desktop-nav";
 
 export function PublicHeader() {
   return (
-    <header className="mx-auto w-full max-w-5xl z-50 text-white">
-      <nav className="px-4 lg:px-0 py-4 flex items-center gap-4">
+    <header className="mx-auto w-full max-w-7xl z-50">
+      <nav className="px-4 py-4 flex items-center gap-4">
         <Logo />
         <div className="flex justify-end sm:justify-start w-full">
           <DesktopNav className="hidden sm:flex pl-4" />

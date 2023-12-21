@@ -9,20 +9,21 @@ export const activeLinkVariant = cva(
   "rounded-full transition-colors duration-200 hover:underline underline-offset-4",
   {
     variants: {
-      variant: {
-        default: "",
-      },
       size: {
         default: "py-2 px-4",
       },
       active: {
         default:
           "bg-blue-500 text-white dark:bg-blue-500 shadow-md hover:bg-blue-500",
+        underline: "underline underline-offset-4 underline-blue-500",
+      },
+      textColor: {
+        default: "",
       },
     },
     defaultVariants: {
-      variant: "default",
       size: "default",
+      textColor: "default",
     },
   }
 );
@@ -42,9 +43,9 @@ export function ActiveLink({
   href,
   label,
   icon,
-  variant = "default",
-  size = "default",
-  active = "default",
+  size,
+  active,
+  textColor,
 }: ActiveLinkProps) {
   const pathname = usePathname();
 
@@ -52,7 +53,7 @@ export function ActiveLink({
     <Link
       href={href}
       className={cn(
-        activeLinkVariant({ variant, size }),
+        activeLinkVariant({ size, textColor }),
         icon && "flex justify-between items-center",
         pathname === href && activeLinkVariant({ active })
       )}

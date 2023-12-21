@@ -5,18 +5,11 @@ import {
   LayoutIcon,
   LogOutIcon,
   Settings,
-  User2Icon,
   Users2,
 } from "lucide-react";
 import { signOut } from "next-auth/react";
 
-export type LinkConfig = {
-  label: string;
-  href: string;
-  icon?: React.ReactNode;
-};
-
-export const headerLinks: LinkConfig[] = [
+export const headerLinks: ActiveLinkType[] = [
   {
     label: "Competitions",
     href: "/competitions",

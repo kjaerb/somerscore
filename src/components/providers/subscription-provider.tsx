@@ -1,6 +1,6 @@
 "use client";
 
-import { subscriptionRef } from "@/lib/converters/subscription";
+import { subscriptionRef } from "@/lib/converters/subscription-converter";
 import useSubscriptionStore from "@/stores/subscription-store";
 import { onSnapshot } from "firebase/firestore";
 import { useSession } from "next-auth/react";
@@ -25,9 +25,9 @@ export function SubscriptionProvider({ children }: SubscriptionProviderProps) {
 
       const subscription = snap.docs[0].data();
       setSubscription(subscription);
-      console.log("subscription", subscription);
+      // console.log("subscription", subscription);
     });
-  }, [session]);
+  }, [session, setSubscription]);
 
   return <>{children}</>;
 }

@@ -6,7 +6,7 @@ interface LayoutProps {
   children: ReactNode;
 }
 
-export default function Layout({ children }: LayoutProps) {
+export default async function Layout({ children }: LayoutProps) {
   return (
     <div className="max-h-screen h-screen overflow-y-hidden flex">
       <Sidebar />
